@@ -109,10 +109,6 @@ dist
 # TernJS port file
 .tern-port
 
-# Build file
-build.html
-images/images.json
-
 # Otros
 img_gioconda
 DATA
