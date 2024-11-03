@@ -1,10 +1,10 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  # push:
+  #   branches: [ "master" ]
+  # pull_request:
+  #   branches: [ "master" ]
   release:
     types: [created]
 
@@ -29,8 +29,8 @@ jobs:
         run: npm install
 
       - name: Fix vulnerabilities
-        run: npm audit fix
-
+        run: npm audit fix --force
+        
       - name: Build the project
         run: npm run build
 
