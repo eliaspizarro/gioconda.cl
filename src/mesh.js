@@ -35,7 +35,8 @@ module.exports = (regl, data, useReflexion) => {
             totalLight *= mix(0.7, 1.0, smoothstep(0.1, 0.12, v_pos.y));
             totalLight *= abs(v_normal.x)/64.0 + 1.0;
             if(v_normal.y > 0.0) {
-                totalLight = 0.47+0.1*texture2D(floorTexture, v_pos.xz / 8.0).rgb;
+                totalLight = texture2D(floorTexture, v_pos.xz / 8.0).rgb;
+                // totalLight = 0.47+0.1*texture2D(floorTexture, v_pos.xz / 8.0).rgb;
             }
             totalLight *= (0.5 + 0.5*hue2rgb(0.5 + (v_pos.x + v_pos.z) / 160.0)); //color variation
             float alpha = .98+smoothstep(150.,0.,dist)-v_normal.y; // reflexion
