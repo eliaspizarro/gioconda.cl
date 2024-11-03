@@ -1,23 +1,11 @@
-# Usa una imagen base de Node.js
-FROM node:lts-alpine
+# Usa una imagen base de nginx para servir el contenido
+FROM nginx:alpine-slim
 
-# Crea el directorio de trabajo en el contenedor
-WORKDIR /app
+# Copia los archivos construidos desde tu máquina local a la carpeta html de nginx
+COPY dist /usr/share/nginx/html
 
-# Copia los archivos package.json y package-lock.json
-COPY package*.json ./
+# Expone el puerto 80 para el tráfico HTTP
+EXPOSE 80
 
-# Instala las dependencias del proyecto
-RUN npm install
-
-# Copia el resto de los archivos del proyecto al contenedor
-COPY . .
-
-# Compila el proyecto en modo producción
-RUN npm run build
-
-# Exponemos el puerto que usará la aplicación (puedes ajustarlo según tu configuración)
-EXPOSE 9966
-
-# Comando para iniciar la aplicación
-CMD ["npm", "start"]
+# Inicia el servidor nginx
+CMD ["nginx", "-g", "daemon off;"]

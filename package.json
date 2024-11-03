@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"scripts": {
 		"start": "budo src/index.js",
-		"build": "mkdir -p dist/res && mkdir -p dist/images && browserify -p tinyify src/index.js | htmlify base.html > dist/build.html && cp -r res/*.jpg dist/res && cp -r images/*.jpg dist/images",
+		"build": "cpx \"res/*.jpg\" dist/res && cpx \"images/*.jpg\" dist/images && cpx images/images.json dist/images && browserify -p tinyify src/index.js | htmlify base.html > dist/index.html",
 		"serve": "http-server dist -p 8080",
 		"clean": "rm -rf dist"
 	},
@@ -25,8 +25,10 @@
 		"babelify": "^10.0.0",
 		"browserify": "^17.0.1",
 		"budo": "^11.8.4",
-		"inline-htmlify": "^1.0.2",
-		"tinyify": "^3.1.0",
+		"cpx": "^1.5.0",
+		"http-server": "^14.1.1",
+		"inline-htmlify": "^2.0.1",
+		"tinyify": "^4.0.0",
 		"uglify-js": "^3.19.3"
 	},
 	"browserify": {
