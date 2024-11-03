@@ -4,7 +4,9 @@
 	"version": "1.0.0",
 	"scripts": {
 		"start": "budo src/index.js",
-		"build": "browserify -p tinyify src/index.js | htmlify base.html > build.html"
+		"build": "mkdir -p dist/res && mkdir -p dist/images && browserify -p tinyify src/index.js | htmlify base.html > dist/build.html && cp -r res/*.jpg dist/res && cp -r images/*.jpg dist/images",
+		"serve": "http-server dist -p 8080",
+		"clean": "rm -rf dist"
 	},
 	"license": "MIT",
 	"dependencies": {

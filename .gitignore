@@ -1,3 +1,7 @@
+# Privados
+.vscode
+.github
+
 # Logs
 logs
 *.log
@@ -111,5 +115,5 @@ build.html
 images/images.json
 
 # Otros
-res/test/
-img_gioconda/
+img_gioconda
+DATA
