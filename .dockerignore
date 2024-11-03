@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+.DS_Store
+.vscode
+*.afphoto
+*.blend
+*.old.jpg
+*.afphoto
+res/test
+build
+img_gioconda
